@@ -23,6 +23,11 @@ This project is written in Ruby and demonstrates key software engineering practi
     bundle install
     ```
 
+3. Run the RSpec test suite:
+     ```
+    rspec spec/basket_spec.rb
+    ```
+
 ## Current Implementation
 
 ### Core Domain
@@ -41,13 +46,20 @@ This project is written in Ruby and demonstrates key software engineering practi
 
 - Extensible to support discounts, pricing strategies, or new delivery rules without rewriting basket logic.
 
+## Features Implemented
+
+- **Product & ProductCatalogue** – define and look up products by code.
+- **Delivery Rules & DeliveryCalculator** – tiered delivery charges based on basket subtotal.
+- **RedWidgetHalfPriceOffer** – “buy one red widget, get the second half price” offer.
+- **Basket** – main class that supports:
+  - Adding items by product code
+  - Calculating totals with offers and delivery rules applied
+- **RSpec Tests** – verifying basket totals against expected scenarios.
+
+
 ### Work in Progress
 
-- RSpec tests (spec/basket_spec.rb) are being added.
-
-- CLI runner (bin/basket) will allow manual play with basket items.
-
-- Minor rounding differences in totals are being resolved.
+- **CLI Runner (`bin/basket`)** – will allow manual play with basket items from the command line.
 
 # 👤 **Author**
  - GitHub: [@githubhandle](https://github.com/Whoistolu)
