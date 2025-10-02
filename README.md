@@ -56,11 +56,6 @@ This project is written in Ruby and demonstrates key software engineering practi
   - Calculating totals with offers and delivery rules applied
 - **RSpec Tests** – verifying basket totals against expected scenarios.
 
-
-### Work in Progress
-
-- **CLI Runner (`bin/basket`)** – will allow manual play with basket items from the command line.
-
 # 👤 **Author**
  - GitHub: [@githubhandle](https://github.com/Whoistolu)
 
