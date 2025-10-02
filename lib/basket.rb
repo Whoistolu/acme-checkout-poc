@@ -1,3 +1,5 @@
+require "bigdecimal"
+
 class Basket
   def initialize(catalogue:, delivery_calculator:, offers: [])
     @catalogue = catalogue
@@ -7,13 +9,17 @@ class Basket
   end
 
   def add(code)
-    @items << @catalogue.find(code)
+    @items << code
   end
 
   def total
-    subtotal = @items.sum(&:price)
-    discount = @offers.sum { |offer| offer.apply(@items) }
+    subtotal = @items.sum { |code| @catalogue.find(code).price }
+
+    discount = @offers.sum { |offer| offer.apply(@items, @catalogue) }
+
     delivery = @delivery_calculator.calculate(subtotal - discount)
-    (subtotal - discount + delivery).round(2)
+
+    total = subtotal - discount + BigDecimal(delivery.to_s)
+    total.round(2).to_f
   end
 end
