@@ -1,13 +1,15 @@
 require_relative "offer"
 
 class RedWidgetOffer < Offer
-  RED_CODE = "R01"
+  RED_CODE = "R01".freeze
 
-  def apply(items)
-    red_widgets = items.select { |p| p.code == RED_CODE }
-    pairs = red_widgets.count / 2
-    return 0.0 if red_widgets.empty?
+  def apply(items, catalogue)
+    red_count = items.count(RED_CODE)
+    return BigDecimal("0") if red_count < 2
 
-    (red_widgets.first.price / 2) * pairs
+    red_price = catalogue.find(RED_CODE).price
+    pairs = red_count / 2
+
+    (pairs * (red_price / 2)).round(2)
   end
 end
