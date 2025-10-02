@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductCatalogue
   def initialize(products)
     @products = products.each_with_object({}) { |p, h| h[p.code] = p }

@@ -1,4 +1,6 @@
-require "bigdecimal"
+# frozen_string_literal: true
+
+require 'bigdecimal'
 
 class Product
   attr_reader :code, :name, :price

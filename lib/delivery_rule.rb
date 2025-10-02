@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DeliveryRule
   attr_reader :threshold, :charge
 

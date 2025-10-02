@@ -1,4 +1,6 @@
-require "bigdecimal"
+# frozen_string_literal: true
+
+require 'bigdecimal'
 
 class Basket
   def initialize(catalogue:, delivery_calculator:, offers: [])

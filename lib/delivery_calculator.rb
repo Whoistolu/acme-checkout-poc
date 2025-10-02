@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DeliveryCalculator
   def initialize(rules)
     @rules = rules.sort_by(&:threshold)
