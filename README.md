@@ -56,6 +56,16 @@ This project is written in Ruby and demonstrates key software engineering practi
   - Calculating totals with offers and delivery rules applied
 - **RSpec Tests** – verifying basket totals against expected scenarios.
 
+## Final Notes & Assumptions
+
+- **Money Handling**: All prices and calculations use `BigDecimal` to avoid floating point rounding errors.  
+- **Delivery Rules**: Rules are order-independent and applied by checking thresholds in ascending order. Orders of $90 or more result in free delivery by default.  
+- **Offers**: The implementation uses the Strategy pattern. Each offer is encapsulated in its own class with an `apply` method, making it easy to add or remove offers without changing basket logic.  
+- **Basket Responsibility**: The basket only coordinates product lookups, delivery calculation, and offer application. It does not contain hard-coded pricing logic, keeping it extensible.  
+- **Error Handling**: Adding an unknown product code raises an `ArgumentError`.  
+- **Proof of Concept Scope**: This project is to demonstrate Ruby, encapsulation, dependency injection, and extensible design patterns.  
+
+
 # 👤 **Author**
  - GitHub: [@githubhandle](https://github.com/Whoistolu)
 
